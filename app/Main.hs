@@ -7,8 +7,8 @@ main :: IO ()
 main = do
   putStrLn("Enter a credit card no.:")
   line <- getLine
-  let nums = zipIndex line
-      digits = luhn $ reverse nums
+  let nums = zipIndex $ reverse line
+      digits = luhn $ nums
   putStrLn("Is valid: " ++ show ((sum digits) `mod` 10 == 0))
 
 luhn = map (\x -> if (fst x `mod` 2) == 0
